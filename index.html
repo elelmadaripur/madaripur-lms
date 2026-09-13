@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="E-Learning and Earning Ltd. – Madaripur Branch">
+<meta name="theme-color" content="#159E42">
+<title>E-Learning & Earning Ltd. – Madaripur Branch</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Noto Sans Bengali","Hind Siliguri",Arial,sans-serif;
+  background:#f7faf8;
+  color:#18251d;
+  line-height:1.7;
+}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+
+:root{
+  --green:#159E42;
+  --dark:#071136;
+  --pink:#D134EE;
+  --light:#eef9f2;
+  --white:#fff;
+  --gray:#64706a;
+  --shadow:0 10px 35px rgba(7,17,54,.09);
+}
+
+/* TOP BAR */
+.topbar{
+  background:var(--dark);
+  color:#fff;
+  padding:8px 5%;
+  font-size:14px;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+}
+.topbar span{opacity:.95}
+
+/* HEADER */
+header{
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 3px 18px rgba(0,0,0,.08);
+}
+.nav{
+  max-width:1250px;
+  margin:auto;
+  min-height:78px;
+  padding:10px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+  color:var(--dark);
+}
+.logo-icon{
+  width:48px;
+  height:48px;
+  border-radius:13px;
+  background:linear-gradient(135deg,var(--green),#0b7830);
+  color:white;
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  font-weight:900;
+}
+.logo-text small{
+  display:block;
+  font-size:11px;
+  color:var(--green);
+  letter-spacing:.4px;
+}
+.logo-text strong{
+  display:block;
+  font-size:15px;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+nav a{
+  display:block;
+  padding:9px 12px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:600;
+  transition:.25s;
+}
+nav a:hover{
+  background:var(--light);
+  color:var(--green);
+}
+.login-btn{
+  background:var(--green)!important;
+  color:white!important;
+}
+.menu{
+  display:none;
+  border:0;
+  background:var(--dark);
+  color:#fff;
+  width:44px;
+  height:42px;
+  border-radius:9px;
+  font-size:22px;
+}
+
+/* HERO */
+.hero{
+  min-height:590px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(209,52,238,.18),transparent 28%),
+    radial-gradient(circle at 10% 80%,rgba(21,158,66,.2),transparent 30%),
+    linear-gradient(135deg,#071136 0%,#0b2850 48%,#075c32 100%);
+  color:white;
+}
+.hero:before{
+  content:"";
+  position:absolute;
+  width:500px;height:500px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;
+  right:-180px;top:-170px;
+  box-shadow:0 0 0 80px rgba(255,255,255,.025),
+             0 0 0 160px rgba(255,255,255,.018);
+}
+.hero-content{
+  width:min(1150px,92%);
+  margin:auto;
+  position:relative;
+  z-index:2;
+  padding:70px 0;
+}
+.badge{
+  display:inline-block;
+  padding:7px 14px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:30px;
+  font-size:13px;
+  margin-bottom:20px;
+}
+.hero h1{
+  max-width:780px;
+  font-size:clamp(34px,5vw,62px);
+  line-height:1.18;
+  margin-bottom:20px;
+}
+.hero h1 span{color:#65e68e}
+.hero p{
+  max-width:700px;
+  color:#dbe8e1;
+  font-size:17px;
+  margin-bottom:30px;
+}
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 22px;
+  border-radius:9px;
+  font-weight:700;
+  border:1px solid transparent;
+  transition:.25s;
+}
+.btn-primary{
+  background:var(--green);
+  color:#fff;
+}
+.btn-primary:hover{transform:translateY(-2px);background:#118b38}
+.btn-outline{
+  border-color:rgba(255,255,255,.45);
+  color:#fff;
+}
+.btn-outline:hover{background:#fff;color:var(--dark)}
+
+/* SECTIONS */
+section{padding:80px 5%}
+.container{max-width:1150px;margin:auto}
+.section-head{text-align:center;margin-bottom:42px}
+.section-head .mini{
+  color:var(--green);
+  font-weight:800;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.section-head h2{
+  color:var(--dark);
+  font-size:clamp(28px,4vw,40px);
+  margin:6px 0 10px;
+}
+.section-head p{
+  color:var(--gray);
+  max-width:680px;
+  margin:auto;
+}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:26px;
+  box-shadow:var(--shadow);
+  border:1px solid #eaf0ec;
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 16px 40px rgba(7,17,54,.13);
+}
+.icon{
+  width:52px;height:52px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  background:var(--light);
+  color:var(--green);
+  font-size:23px;
+  margin-bottom:17px;
+}
+.card h3{color:var(--dark);margin-bottom:7px;font-size:20px}
+.card p{color:var(--gray);font-size:14px}
+
+/* ABOUT */
+.about{
+  background:#fff;
+}
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:55px;
+  align-items:center;
+}
+.about-box{
+  background:linear-gradient(145deg,#071136,#12356d);
+  min-height:360px;
+  border-radius:24px;
+  padding:38px;
+  color:white;
+  position:relative;
+  overflow:hidden;
+}
+.about-box:after{
+  content:"";
+  position:absolute;
+  width:230px;height:230px;
+  border-radius:50%;
+  border:45px solid rgba(21,158,66,.2);
+  right:-80px;bottom:-90px;
+}
+.about-box h3{font-size:30px;margin-bottom:14px}
+.about-box p{color:#dbe7ef}
+.about-content h2{
+  color:var(--dark);
+  font-size:36px;
+  margin-bottom:15px;
+}
+.about-content p{color:var(--gray);margin-bottom:16px}
+.check{
+  list-style:none;
+  margin-top:20px;
+}
+.check li{
+  margin:10px 0;
+  color:#34413a;
+}
+.check li:before{
+  content:"✓";
+  color:var(--green);
+  font-weight:900;
+  margin-right:10px;
+}
+
+/* COURSES */
+.course-card{
+  padding:0;
+  overflow:hidden;
+}
+.course-image{
+  height:145px;
+  background:linear-gradient(135deg,var(--dark),var(--green));
+  display:grid;
+  place-items:center;
+  color:white;
+  font-size:44px;
+}
+.course-body{padding:22px}
+.course-tag{
+  display:inline-block;
+  font-size:11px;
+  background:#eaf8ee;
+  color:var(--green);
+  padding:4px 9px;
+  border-radius:20px;
+  font-weight:800;
+  margin-bottom:9px;
+}
+.course-body h3{margin-bottom:7px}
+
+/* STATS */
+.stats{
+  background:linear-gradient(135deg,var(--green),#087332);
+  color:white;
+  padding:55px 5%;
+}
+.stats-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  text-align:center;
+}
+.stat h3{font-size:36px}
+.stat p{opacity:.9;font-size:14px}
+
+/* NOTICE */
+.notice-list{
+  max-width:850px;
+  margin:auto;
+}
+.notice{
+  background:#fff;
+  border-left:4px solid var(--green);
+  padding:20px 22px;
+  margin-bottom:15px;
+  border-radius:10px;
+  box-shadow:var(--shadow);
+}
+.notice strong{color:var(--dark)}
+.notice small{
+  display:block;
+  color:var(--green);
+  margin-top:5px;
+}
+
+/* ADMISSION */
+.admission{
+  background:#f0faf3;
+}
+.form{
+  max-width:850px;
+  margin:auto;
+  background:#fff;
+  padding:32px;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:17px;
+}
+.field{margin-bottom:5px}
+.field.full{grid-column:1/-1}
+.field label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  color:var(--dark);
+  margin-bottom:6px;
+}
+.field input,.field select,.field textarea{
+  width:100%;
+  border:1px solid #d9e3dd;
+  border-radius:8px;
+  padding:11px 13px;
+  font:inherit;
+  outline:none;
+  background:#fff;
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px rgba(21,158,66,.1);
+}
+.field textarea{min-height:110px;resize:vertical}
+
+/* CONTACT */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+.contact-card{
+  background:#fff;
+  border-radius:16px;
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+.contact-item{
+  display:flex;
+  gap:15px;
+  padding:15px 0;
+  border-bottom:1px solid #edf1ee;
+}
+.contact-item:last-child{border-bottom:0}
+.contact-icon{
+  width:43px;height:43px;
+  min-width:43px;
+  display:grid;
+  place-items:center;
+  background:var(--light);
+  border-radius:10px;
+  color:var(--green);
+}
+.contact-item strong{display:block;color:var(--dark)}
+.contact-item span{font-size:14px;color:var(--gray)}
+
+/* FOOTER */
+footer{
+  background:var(--dark);
+  color:#fff;
+  padding:55px 5% 20px;
+}
+.footer-grid{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:45px;
+}
+footer h3{margin-bottom:15px}
+footer p,footer li{
+  color:#bdc7d5;
+  font-size:14px;
+}
+footer ul{list-style:none}
+footer li{margin:8px 0}
+footer a:hover{color:#fff}
+.footer-bottom{
+  max-width:1150px;
+  margin:40px auto 0;
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.12);
+  text-align:center;
+  color:#aeb9c8;
+  font-size:13px;
+}
+.developer{color:#65e68e;font-weight:700}
+
+/* LOGIN NOTICE */
+.disabled-note{
+  margin-top:15px;
+  padding:12px 15px;
+  background:#fff7e5;
+  border:1px solid #f4dfaa;
+  color:#795d18;
+  border-radius:8px;
+  font-size:13px;
+}
+
+/* TOAST */
+#toast{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:var(--dark);
+  color:white;
+  padding:14px 18px;
+  border-radius:10px;
+  box-shadow:var(--shadow);
+  display:none;
+  z-index:3000;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav ul{
+    display:none;
+    position:absolute;
+    top:78px;
+    left:0;
+    right:0;
+    background:#fff;
+    padding:12px 5%;
+    box-shadow:0 10px 20px rgba(0,0,0,.1);
+  }
+  nav ul.open{display:block}
+  nav li{margin:3px 0}
+  nav a{padding:11px}
+  .menu{display:block}
+  .cards{grid-template-columns:1fr 1fr}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .topbar{display:none}
+  .nav{min-height:68px;padding:8px 15px}
+  .logo-icon{width:42px;height:42px}
+  .logo-text strong{font-size:12px}
+  .logo-text small{font-size:9px}
+  nav ul{top:68px}
+  .hero{min-height:550px}
+  .hero-content{padding:55px 0}
+  section{padding:60px 5%}
+  .cards,.form-grid,.footer-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .form{padding:20px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>📍 Habib Plaza, Master Colony, Tormuguria, Madaripur</span>
+  <span>📞 01958063315 &nbsp; | &nbsp; ✉ madaripurelel@gmail.com</span>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav">
+    <a href="#home" class="logo">
+      <div class="logo-icon">E</div>
+      <div class="logo-text">
+        <small>E-LEARNING & EARNING LTD.</small>
+        <strong>মাদারীপুর শাখা</strong>
+      </div>
+    </a>
+
+    <nav>
+      <button class="menu" onclick="toggleMenu()">☰</button>
+      <ul id="navMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#teachers">Teachers</a></li>
+        <li><a href="#notices">Notices</a></li>
+        <li><a href="#admission">Admission</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#student" class="login-btn">Student Login</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="badge">🎓 E-Learning & Earning Ltd. — Madaripur Branch</span>
+
+    <h1>
+      দক্ষতা অর্জন করুন,<br>
+      <span>ভবিষ্যৎ গড়ে তুলুন।</span>
+    </h1>
+
+    <p>
+      আধুনিক প্রযুক্তি, ফ্রিল্যান্সিং ও কর্মমুখী দক্ষতা অর্জনের
+      জন্য আপনার বিশ্বস্ত প্রশিক্ষণ সহযোগী।
+    </p>
+
+    <div class="buttons">
+      <a href="#courses" class="btn btn-primary">কোর্স দেখুন →</a>
+      <a href="#admission" class="btn btn-outline">ভর্তি আবেদন করুন</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <div class="about-box">
+        <span class="badge">About Our Branch</span>
+        <h3>মাদারীপুরে দক্ষতার নতুন সুযোগ</h3>
+        <p>
+          E-Learning and Earning Ltd. – Madaripur Branch
+          তরুণদের আধুনিক ও কর্মমুখী দক্ষতা অর্জনে সহযোগিতা করার
+          লক্ষ্য নিয়ে কাজ করছে।
+        </p>
+      </div>
+
+      <div class="about-content">
+        <div class="section-head" style="text-align:left;margin-bottom:15px">
+          <div class="mini">About Us</div>
+          <h2>আপনার শেখার যাত্রায় আমরা পাশে আছি</h2>
+        </div>
+
+        <p>
+          প্রযুক্তি ও ডিজিটাল দক্ষতার এই সময়ে সঠিক প্রশিক্ষণ
+          একজন শিক্ষার্থীকে তার ক্যারিয়ার গঠনে এগিয়ে নিতে পারে।
+        </p>
+
+        <ul class="check">
+          <li>আধুনিক ও কর্মমুখী প্রশিক্ষণ</li>
+          <li>দক্ষতা উন্নয়নের সুযোগ</li>
+          <li>ফ্রিল্যান্সিং ও ডিজিটাল স্কিল শেখার পরিবেশ</li>
+          <li>শিক্ষার্থীবান্ধব প্রশিক্ষণ ব্যবস্থা</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="mini">Why Choose Us</div>
+      <h2>কেন আমাদের বেছে নেবেন?</h2>
+      <p>শেখার পাশাপাশি বাস্তব দক্ষতা তৈরির দিকে আমাদের গুরুত্ব।</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="icon">💻</div>
+        <h3>Practical Learning</h3>
+        <p>শুধু তত্ত্ব নয়—বাস্তব কাজের মাধ্যমে দক্ষতা অর্জনের সুযোগ।</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🚀</div>
+        <h3>Career Focused</h3>
+        <p>ক্যারিয়ার ও কর্মসংস্থানের উপযোগী দক্ষতার দিকে বিশেষ গুরুত্ব।</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Digital Skills</h3>
+        <p>ডিজিটাল যুগের প্রয়োজনীয় প্রযুক্তি ও অনলাইন দক্ষতা শেখার সুযোগ।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses" style="background:#f1f8f3">
+  <div class="container">
+    <div class="section-head">
+      <div class="mini">Our Courses</div>
+      <h2>জনপ্রিয় কোর্সসমূহ</h2>
+      <p>বর্তমান সময়ে প্রয়োজনীয় দক্ষতা অর্জনের জন্য বিভিন্ন প্রশিক্ষণ।</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card course-card">
+        <div class="course-image">💻</div>
+        <div class="course-body">
+          <span class="course-tag">DIGITAL SKILL</span>
+          <h3>Web Design & Development</h3>
+          <p>HTML, CSS, JavaScript ও আধুনিক ওয়েবসাইট তৈরির মৌলিক দক্ষতা।</p>
+        </div>
+      </div>
+
+      <div class="card course-card">
+        <div class="course-image">🎨</div>
+        <div class="course-body">
+          <span class="course-tag">CREATIVE</span>
+          <h3>Graphic Design</h3>
+          <p>ডিজাইন, ব্র্যান্ডিং ও ডিজিটাল কনটেন্ট তৈরির দক্ষতা।</p>
+        </div>
+      </div>
+
+      <div class="card course-card">
+        <div class="course-image">📣</div>
+        <div class="course-body">
+          <span class="course-tag">MARKETING</span>
+          <h3>Digital Marketing</h3>
+          <p>SEO, Social Media Marketing এবং অনলাইন মার্কেটিংয়ের ভিত্তি।</p>
+        </div>
+      </div>
+
+      <div class="card course-card">
+        <div class="course-image">🎬</div>
+        <div class="course-body">
+          <span class="course-tag">MEDIA</span>
+          <h3>Video Editing</h3>
+          <p>ভিডিও কনটেন্ট তৈরি ও এডিটিংয়ের প্রয়োজনীয় দক্ষতা।</p>
+        </div>
+      </div>
+
+      <div class="card course-card">
+        <div class="course-image">🌐</div>
+        <div class="course-body">
+          <span class="course-tag">NETWORKING</span>
+          <h3>Networking & IT Support</h3>
+          <p>Networking, IT support ও troubleshooting-এর মৌলিক জ্ঞান।</p>
+        </div>
+      </div>
+
+      <div class="card course-card">
+        <div class="course-image">💼</div>
+        <div class="course-body">
+          <span class="course-tag">FREELANCING</span>
+          <h3>Freelancing Skills</h3>
+          <p>অনলাইন মার্কেটপ্লেস ও ফ্রিল্যান্সিং ক্যারিয়ারের প্রস্তুতি।</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat">
+      <h3>01</h3>
+      <p>Madaripur Branch</p>
+    </div>
+    <div class="stat">
+      <h3>06+</h3>
+      <p>Training Areas</p>
+    </div>
+    <div class="stat">
+      <h3>100%</h3>
+      <p>Skill Focused</p>
+    </div>
+    <div class="stat">
+      <h3>∞</h3>
+      <p>Learning Opportunities</p>
+    </div>
+  </div>
+</div>
+
+<!-- TEACHERS -->
+<section id="teachers">
+  <div class="container">
+    <div class="section-head">
+      <div class="mini">Our Teachers</div>
+      <h2>শিক্ষকমণ্ডলী</h2>
+      <p>আমাদের প্রশিক্ষকদের তথ্য পর্যায়ক্রমে এখানে প্রকাশ করা হবে।</p>
+    </div>
+
+    <div class="cards">
+      <div class="card" style="text-align:center">
+        <div class="icon" style="margin:0 auto 17px">👨‍🏫</div>
+        <h3>Training Instructor</h3>
+        <p>প্রশিক্ষকের বিস্তারিত তথ্য শীঘ্রই প্রকাশ করা হবে।</p>
+      </div>
+
+      <div class="card" style="text-align:center">
+        <div class="icon" style="margin:0 auto 17px">👩‍🏫</div>
+        <h3>Course Instructor</h3>
+        <p>প্রশিক্ষকের বিস্তারিত তথ্য শীঘ্রই প্রকাশ করা হবে।</p>
+      </div>
+
+      <div class="card" style="text-align:center">
+        <div class="icon" style="margin:0 auto 17px">🎓</div>
+        <h3>Expert Trainer</h3>
+        <p>প্রশিক্ষকের বিস্তারিত তথ্য শীঘ্রই প্রকাশ করা হবে।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTICES -->
+<section id="notices" style="background:#f1f8f3">
+  <div class="container">
+    <div class="section-head">
+      <div class="mini">Latest Notices</div>
+      <h2>নোটিশ ও সংবাদ</h2>
+      <p>গুরুত্বপূর্ণ ঘোষণা ও আপডেট এখানে প্রকাশ করা হবে।</p>
+    </div>
+
+    <div class="notice-list">
+      <div class="notice">
+        <strong>📢 নতুন ব্যাচ ও কোর্স সংক্রান্ত তথ্য শীঘ্রই প্রকাশ করা হবে।</strong>
+        <small>মাদারীপুর শাখা</small>
+      </div>
+
+      <div class="notice">
+        <strong>📢 ভর্তি সংক্রান্ত তথ্যের জন্য আমাদের সাথে যোগাযোগ করুন।</strong>
+        <small>মাদারীপুর শাখা</small>
+      </div>
+
+      <div class="notice">
+        <strong>📢 নিয়মিত ওয়েবসাইটে নতুন আপডেট দেখুন।</strong>
+        <small>Official Notice</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADMISSION -->
+<section class="admission" id="admission">
+  <div class="container">
+    <div class="section-head">
+      <div class="mini">Admission</div>
+      <h2>ভর্তি আবেদন</h2>
+      <p>আপনার তথ্য দিয়ে প্রাথমিকভাবে ভর্তি আবেদন করতে পারেন।</p>
+    </div>
+
+    <form class="form" onsubmit="submitAdmission(event)">
+      <div class="form-grid">
+
+        <div class="field">
+          <label>আপনার নাম *</label>
+          <input type="text" id="name" required placeholder="পূর্ণ নাম">
+        </div>
+
+        <div class="field">
+          <label>মোবাইল নম্বর *</label>
+          <input type="tel" id="phone" required placeholder="01XXXXXXXXX">
+        </div>
+
+        <div class="field">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="your@email.com">
+        </div>
+
+        <div class="field">
+          <label>কোর্স নির্বাচন করুন *</label>
+          <select id="course" required>
+            <option value="">কোর্স নির্বাচন করুন</option>
+            <option>Web Design & Development</option>
+            <option>Graphic Design</option>
+            <option>Digital Marketing</option>
+            <option>Video Editing</option>
+            <option>Networking & IT Support</option>
+            <option>Freelancing Skills</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label>ঠিকানা</label>
+          <input type="text" id="address" placeholder="আপনার ঠিকানা">
+        </div>
+
+        <div class="field full">
+          <label>অতিরিক্ত তথ্য</label>
+          <textarea id="note" placeholder="প্রয়োজনে কিছু লিখুন..."></textarea>
+        </div>
+
+        <div class="field full">
+          <button type="submit" class="btn btn-primary" style="width:100%">
+            আবেদন জমা দিন →
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- STUDENT -->
+<section id="student">
+  <div class="container">
+    <div class="section-head">
+      <div class="mini">Student Portal</div>
+      <h2>Student Login</h2>
+      <p>অনলাইন শিক্ষার্থী সিস্টেম ভবিষ্যতে চালু করা হবে।</p>
+    </div>
+
+    <div class="card" style="max-width:650px;margin:auto;text-align:center">
+      <div class="icon" style="margin:0 auto 18px">🔐</div>
+      <h3>Student Login বর্তমানে বন্ধ</h3>
+      <p>
+        শিক্ষার্থী Registration, Login, Course Enrollment,
+        Lessons এবং Progress System ভবিষ্যতে Admin থেকে চালু করা যাবে।
+      </p>
+
+      <div class="disabled-note">
+        🔒 Student Login is currently disabled.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:#f1f8f3">
+  <div class="container">
+    <div class="section-head">
+      <div class="mini">Contact Us</div>
+      <h2>যোগাযোগ করুন</h2>
+      <p>ভর্তি, কোর্স অথবা যেকোনো তথ্যের জন্য আমাদের সাথে যোগাযোগ করুন।</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-card">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <strong>ঠিকানা</strong>
+            <span>Habib Plaza (3rd Floor), Master Colony, Tormuguria, Madaripur Sadar, Madaripur</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <strong>Phone</strong>
+            <span>01958063315</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <div>
+            <strong>Email</strong>
+            <span>madaripurelel@gmail.com</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">ⓕ</div>
+          <div>
+            <strong>Facebook</strong>
+            <span>Official Madaripur Branch Page</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h3 style="color:var(--dark);margin-bottom:12px">আমাদের সাথে যোগাযোগ</h3>
+        <p style="color:var(--gray);margin-bottom:20px">
+          কোর্স, ভর্তি বা প্রশিক্ষণ সম্পর্কে জানতে সরাসরি
+          আমাদের শাখায় যোগাযোগ করুন।
+        </p>
+
+        <a href="tel:01958063315" class="btn btn-primary">
+          📞 Call Now
+        </a>
+
+        <a href="mailto:madaripurelel@gmail.com"
+           class="btn"
+           style="background:#eef9f2;color:var(--green);margin-left:8px">
+          ✉ Email
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+
+    <div>
+      <h3>E-Learning & Earning Ltd.</h3>
+      <p>
+        Madaripur Branch — আধুনিক প্রযুক্তি ও কর্মমুখী
+        দক্ষতা অর্জনের একটি প্রশিক্ষণ কেন্দ্র।
+      </p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#admission">Admission</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li>📞 01958063315</li>
+        <li>✉ madaripurelel@gmail.com</li>
+        <li>📍 Madaripur Sadar, Madaripur</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © <span id="year"></span> E-Learning and Earning Ltd. – Madaripur Branch.
+    All Rights Reserved.
+    <br>
+    Designed & Developed by
+    <span class="developer">Md. Masnur Rahaman Tabin</span>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function toggleMenu(){
+  document.getElementById("navMenu").classList.toggle("open");
+}
+
+document.querySelectorAll("#navMenu a").forEach(function(link){
+  link.addEventListener("click",function(){
+    document.getElementById("navMenu").classList.remove("open");
+  });
+});
+
+function submitAdmission(e){
+  e.preventDefault();
+
+  const name=document.getElementById("name").value.trim();
+  const phone=document.getElementById("phone").value.trim();
+  const course=document.getElementById("course").value;
+
+  if(!name || !phone || !course){
+    showToast("দয়া করে প্রয়োজনীয় তথ্য পূরণ করুন।");
+    return;
+  }
+
+  showToast("আবেদন গ্রহণের জন্য প্রস্তুত। Supabase যুক্ত হলে তথ্য Database-এ সংরক্ষিত হবে।");
+
+  e.target.reset();
+}
+
+function showToast(message){
+  const toast=document.getElementById("toast");
+  toast.textContent=message;
+  toast.style.display="block";
+
+  setTimeout(function(){
+    toast.style.display="none";
+  },4000);
+}
+</script>
+
+</body>
+</html>
