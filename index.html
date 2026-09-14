@@ -1621,13 +1621,23 @@
 
 
         <button
-          id="loginButton"
-          class="btn btn-primary"
-          type="submit"
-          style="width:100%"
-        >
-          Login
-        </button>
+  id="loginButton"
+  class="btn btn-primary"
+  type="submit"
+  style="width:100%"
+>
+  Login
+</button>
+
+<button
+  id="forgotPasswordButton"
+  class="btn btn-secondary"
+  type="button"
+  style="width:100%; margin-top:10px;"
+  onclick="forgotPassword()"
+>
+  Forgot Password?
+</button>
 
       </form>
 
@@ -4163,7 +4173,63 @@ $("loginForm").addEventListener(
 /* =========================================================
    LOGOUT
    ========================================================= */
+async function forgotPassword(){
 
+  const email = $("loginEmail").value.trim();
+
+  if(!email){
+    showToast("আগে আপনার Email লিখুন।");
+    $("loginEmail").focus();
+    return;
+  }
+
+  try{
+
+    const button = $("forgotPasswordButton");
+
+    button.disabled = true;
+    button.textContent = "Sending...";
+
+    const { error } =
+      await supabaseClient.auth.resetPasswordForEmail(
+        email,
+        {
+          redirectTo:
+            window.location.origin +
+            window.location.pathname +
+            "?reset=true"
+        }
+      );
+
+    if(error){
+      console.error("Password reset error:", error);
+      showToast("Password reset email পাঠানো যায়নি।");
+      return;
+    }
+
+    showToast(
+      "Password reset link আপনার Gmail-এ পাঠানো হয়েছে।"
+    );
+
+  }catch(error){
+
+    console.error(
+      "Unexpected password reset error:",
+      error
+    );
+
+    showToast("Password reset করা যায়নি।");
+
+  }finally{
+
+    const button = $("forgotPasswordButton");
+
+    button.disabled = false;
+    button.textContent = "Forgot Password?";
+
+  }
+
+}
 async function logout(){
 
   try{
