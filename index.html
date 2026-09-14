@@ -6853,7 +6853,178 @@ async function init(){
   }else{
 
     setupAuthListener();
+/* =========================================================
+   PASSWORD RESET FORM
+   ========================================================= */
 
+function showPasswordResetForm(){
+
+  const modal =
+    document.getElementById("passwordResetModal");
+
+  if(!modal) return;
+
+  modal.style.display = "flex";
+
+}
+
+
+/* =========================================================
+   UPDATE NEW PASSWORD
+   ========================================================= */
+
+async function updateNewPassword(){
+
+  if(!supabaseClient){
+
+    alert("Supabase is not connected.");
+
+    return;
+
+  }
+
+  const password =
+    document.getElementById("newPassword").value.trim();
+
+  const confirmPassword =
+    document
+      .getElementById("confirmNewPassword")
+      .value
+      .trim();
+
+  const message =
+    document.getElementById("passwordResetMessage");
+
+
+  /* Password empty */
+
+  if(!password){
+
+    message.style.color = "#dc2626";
+
+    message.textContent =
+      "Please enter a new password.";
+
+    return;
+
+  }
+
+
+  /* Minimum password length */
+
+  if(password.length < 6){
+
+    message.style.color = "#dc2626";
+
+    message.textContent =
+      "Password must be at least 6 characters.";
+
+    return;
+
+  }
+
+
+  /* Password confirmation */
+
+  if(password !== confirmPassword){
+
+    message.style.color = "#dc2626";
+
+    message.textContent =
+      "Passwords do not match.";
+
+    return;
+
+  }
+
+
+  message.style.color = "#666";
+
+  message.textContent =
+    "Updating password...";
+
+
+  try{
+
+    const { data, error } =
+      await supabaseClient.auth.updateUser({
+        password: password
+      });
+
+
+    if(error){
+
+      console.error(
+        "Password update error:",
+        error
+      );
+
+      message.style.color = "#dc2626";
+
+      message.textContent =
+        error.message ||
+        "Failed to update password.";
+
+      return;
+
+    }
+
+
+    console.log(
+      "Password updated successfully:",
+      data
+    );
+
+
+    message.style.color = "#16a34a";
+
+    message.textContent =
+      "Password updated successfully!";
+
+
+    document.getElementById("newPassword").value = "";
+
+    document.getElementById("confirmNewPassword").value = "";
+
+
+    setTimeout(
+      function(){
+
+        const modal =
+          document.getElementById(
+            "passwordResetModal"
+          );
+
+        if(modal){
+
+          modal.style.display = "none";
+
+        }
+
+        alert(
+          "Password updated successfully. You can now login with your new password."
+        );
+
+      },
+      1500
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Unexpected password update error:",
+      error
+    );
+
+    message.style.color = "#dc2626";
+
+    message.textContent =
+      "Something went wrong. Please try again.";
+
+  }
+
+}
   }
 
 
@@ -6910,6 +7081,105 @@ async function init(){
 init();
 
 </script>
+<!-- =========================================================
+     PASSWORD RESET FORM
+     ========================================================= -->
 
+<div id="passwordResetModal"
+     style="
+       display:none;
+       position:fixed;
+       inset:0;
+       background:rgba(0,0,0,.65);
+       z-index:99999;
+       align-items:center;
+       justify-content:center;
+       padding:20px;
+     ">
+
+  <div style="
+       width:100%;
+       max-width:420px;
+       background:#fff;
+       border-radius:16px;
+       padding:28px;
+       box-shadow:0 20px 60px rgba(0,0,0,.25);
+     ">
+
+    <h2 style="
+         margin:0 0 8px;
+         text-align:center;
+       ">
+      Reset Password
+    </h2>
+
+    <p style="
+         margin:0 0 22px;
+         text-align:center;
+         color:#666;
+       ">
+      Enter your new password below.
+    </p>
+
+    <input
+      type="password"
+      id="newPassword"
+      placeholder="New Password"
+      autocomplete="new-password"
+      style="
+        width:100%;
+        box-sizing:border-box;
+        padding:13px;
+        margin-bottom:12px;
+        border:1px solid #ddd;
+        border-radius:8px;
+        font-size:15px;
+      "
+    >
+
+    <input
+      type="password"
+      id="confirmNewPassword"
+      placeholder="Confirm New Password"
+      autocomplete="new-password"
+      style="
+        width:100%;
+        box-sizing:border-box;
+        padding:13px;
+        margin-bottom:15px;
+        border:1px solid #ddd;
+        border-radius:8px;
+        font-size:15px;
+      "
+    >
+
+    <button
+      type="button"
+      onclick="updateNewPassword()"
+      style="
+        width:100%;
+        padding:13px;
+        border:none;
+        border-radius:8px;
+        background:#2563eb;
+        color:#fff;
+        font-size:16px;
+        cursor:pointer;
+      "
+    >
+      Update Password
+    </button>
+
+    <p
+      id="passwordResetMessage"
+      style="
+        margin:15px 0 0;
+        text-align:center;
+        font-size:14px;
+      "
+    ></p>
+
+  </div>
+</div>
 </body>
 </html>
