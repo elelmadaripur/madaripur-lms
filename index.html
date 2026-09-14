@@ -6778,20 +6778,29 @@ function setupAuthListener(){
 
   if(!supabaseClient) return;
 
-
   supabaseClient.auth.onAuthStateChange(
-    function(event){
+    function(event, session){
 
       console.log(
         "Auth event:",
         event
       );
 
+      if(event === "PASSWORD_RECOVERY"){
+
+        setTimeout(
+          function(){
+            showPasswordResetForm();
+          },
+          0
+        );
+
+      }
+
     }
   );
 
 }
-
 
 /* =========================================================
    CLOSE MOBILE MENU AFTER LINK CLICK
